@@ -143,17 +143,9 @@ h3 { font-weight: 500; }
 #contact::before    { animation-delay: -18s; }
 #contact::after     { animation-delay: -22s; }
 @media (max-width: 899px) {
-  /* Same story for section orbs — freeze + lower blur radius on mobile. */
+  /* Same on the section orbs. */
   .section:not(.section--alt)::before,
-  .section:not(.section--alt)::after {
-    width: 500px;
-    height: 500px;
-    filter: blur(40px);
-    opacity: 0.22;
-    animation: none !important;
-  }
-  .section:not(.section--alt)::before { top: -180px; left: -160px; }
-  .section:not(.section--alt)::after  { bottom: -180px; right: -160px; }
+  .section:not(.section--alt)::after { display: none; }
 }
 
 .skip-link {
@@ -329,17 +321,9 @@ h3 { font-weight: 500; }
   animation: orbDriftB 28s ease-in-out infinite;
 }
 @media (max-width: 899px) {
-  /* Mobile/tablet performance: shrink, drop blur radius, and freeze orb motion.
-     Animated giant blurs are the #1 cost on mobile GPUs. */
-  .hero__orb {
-    width: 540px;
-    height: 540px;
-    filter: blur(40px);
-    opacity: 0.32;
-    animation: none !important;
-  }
-  .hero__orb--cyan { top: -160px; left: -160px; }
-  .hero__orb--mag  { bottom: -180px; right: -180px; }
+  /* Mobile: hide the orbs entirely. Even static, large-radius blurs cost
+     full-buffer recomposite on every scroll frame. */
+  .hero__orb { display: none; }
 }
 @keyframes orbDriftA {
   0%, 100% { transform: translate(0, 0) scale(1); }
@@ -1128,9 +1112,10 @@ h3 { font-weight: 500; }
 
 /* =========================================================
    Mobile performance pass
-   Mobile GPUs choke on continuous large-radius blurs and
-   backdrop-filter. Below 900px we trade some visual fidelity
-   for steady 60fps scrolling.
+   Mobile GPUs choke on continuous animation, blur, blend-modes,
+   and backdrop-filter. Below 900px we strip the page down to
+   essential text + a small set of cheap animations, trading
+   visual flourish for steady scrolling.
    ========================================================= */
 @media (max-width: 899px) {
   /* Glass nav -> solid translucent fill. backdrop-filter is
@@ -1141,12 +1126,32 @@ h3 { font-weight: 500; }
     -webkit-backdrop-filter: none;
   }
 
-  /* Freeze the moving scanline mask on the headshot. Duotone tint stays. */
-  .hero__avatar-mask::after { animation: none; }
+  /* Drop the tech ticker entirely. Continuous translateX of a
+     long flex row forces compositor work every frame. */
+  .marquee { display: none; }
 
-  /* The full-viewport grid pattern is fixed-positioned with a mask;
-     fixed + mask + scroll on mobile is jank-prone. Drop it on small screens. */
+  /* Drop the full-viewport fixed grid pattern. fixed + mask + scroll
+     on mobile is jank-prone. */
   body::before { display: none; }
+
+  /* Strip the headshot down to just the cyan-bordered photo:
+     no duotone blend, no scanline mask, no spinning ring, no float. */
+  .hero__avatar-mask::before,
+  .hero__avatar-mask::after { display: none; }
+  .hero__avatar-ring { display: none; }
+  .hero__avatar { animation: none; }
+
+  /* Freeze the name glitch — clip-path keyframes are expensive. */
+  .glitch::before,
+  .glitch::after { display: none; }
+
+  /* Simplify the live status dot — keep the green dot, drop the
+     animated box-shadow pulse. */
+  .status-dot--live { animation: none; }
+
+  /* Freeze the scroll-hint bob (it's a small win but every animation
+     removed lightens the compositor load). */
+  .hero__scroll { animation: none; }
 
   /* Skip rendering off-screen cards until they're scrolled near.
      contain-intrinsic-size reserves space so the scrollbar doesn't jump. */

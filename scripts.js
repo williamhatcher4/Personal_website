@@ -237,34 +237,25 @@
   function initParticles() {
     if (typeof tsParticles === 'undefined') return;
     const isNarrow = window.matchMedia('(max-width: 899px)').matches;
+    // Skip the canvas entirely on mobile — biggest remaining frame cost.
+    if (isNarrow) return;
     tsParticles.load({
       id: 'particles',
       options: {
-        fpsLimit: isNarrow ? 30 : 60,
+        fpsLimit: 60,
         background: { color: { value: 'transparent' } },
         particles: {
-          number: {
-            value: isNarrow ? 20 : 80,
-            density: { enable: true, area: 900 },
-          },
+          number: { value: 80, density: { enable: true, area: 900 } },
           color: { value: '#22D3EE' },
           opacity: {
             value: 0.55,
-            animation: isNarrow
-              ? { enable: false }
-              : { enable: true, speed: 0.4, minimumValue: 0.2, sync: false },
+            animation: { enable: true, speed: 0.4, minimumValue: 0.2, sync: false },
           },
           size: { value: { min: 1, max: 2.4 } },
-          links: {
-            enable: true,
-            distance: isNarrow ? 110 : 150,
-            color: '#22D3EE',
-            opacity: 0.28,
-            width: 1,
-          },
+          links: { enable: true, distance: 150, color: '#22D3EE', opacity: 0.28, width: 1 },
           move: {
             enable: !prefersReduced,
-            speed: isNarrow ? 0.35 : 0.6,
+            speed: 0.6,
             direction: 'none',
             random: true,
             straight: false,
@@ -273,13 +264,10 @@
         },
         interactivity: {
           events: {
-            // Touch-grab on mobile causes per-finger-move recompute of every link.
-            onHover: { enable: !prefersReduced && !isNarrow, mode: 'grab' },
+            onHover: { enable: !prefersReduced, mode: 'grab' },
             resize: true,
           },
-          modes: {
-            grab: { distance: 180, links: { opacity: 0.7 } },
-          },
+          modes: { grab: { distance: 180, links: { opacity: 0.7 } } },
         },
         detectRetina: true,
         pauseOnBlur: true,
