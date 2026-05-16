@@ -5,12 +5,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>William Hatcher — Embedded & Systems Software Engineer</title>
   <meta name="description" content="Portfolio of William Hatcher: embedded systems, hardware-in-the-loop testing, and scalable software engineering." />
+  <meta name="author" content="William Hatcher" />
+  <meta name="theme-color" content="#05060A" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="pictures/favicon.svg" />
+  <link rel="alternate icon" href="pictures/favicon.svg" />
+  <link rel="apple-touch-icon" href="pictures/favicon.svg" />
+
+  <!-- Open Graph (LinkedIn, Slack, iMessage, Facebook) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://williamhatcher.ca/" />
+  <meta property="og:title" content="William Hatcher — Embedded Systems Engineer" />
+  <meta property="og:description" content="Embedded systems, hardware-in-the-loop testing, and scalable software engineering. Queen's BEng '26 → Imperial MSc." />
+  <meta property="og:image" content="https://williamhatcher.ca/pictures/share-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="William Hatcher — Embedded Systems Engineer" />
+  <meta property="og:site_name" content="William Hatcher" />
+  <meta property="og:locale" content="en_CA" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="William Hatcher — Embedded Systems Engineer" />
+  <meta name="twitter:description" content="Embedded systems, hardware-in-the-loop testing, and scalable software engineering. Queen's BEng '26 → Imperial MSc." />
+  <meta name="twitter:image" content="https://williamhatcher.ca/pictures/share-card.png" />
+  <meta name="twitter:image:alt" content="William Hatcher — Embedded Systems Engineer" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- JSON-LD Person schema for Google Knowledge Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "William Hatcher",
+    "givenName": "William",
+    "familyName": "Hatcher",
+    "url": "https://williamhatcher.ca/",
+    "image": "https://williamhatcher.ca/pictures/Headshot.jpg",
+    "jobTitle": "Embedded Systems Engineer",
+    "description": "Embedded & systems software engineer focused on hardware-in-the-loop testing, RTOS firmware, and scalable software for real-world sensing.",
+    "email": "mailto:williamchalmershatcher@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Oakville",
+      "addressRegion": "ON",
+      "addressCountry": "CA"
+    },
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Queen's University",
+        "sameAs": "https://www.queensu.ca/"
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Nanyang Technological University",
+        "sameAs": "https://www.ntu.edu.sg/"
+      }
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Geotab",
+      "sameAs": "https://www.geotab.com/"
+    },
+    "knowsAbout": [
+      "Embedded Systems",
+      "Hardware-in-the-loop Testing",
+      "Zephyr RTOS",
+      "Nordic nRF52",
+      "Bluetooth Low Energy",
+      "Embedded Linux",
+      "C / C++",
+      "Python",
+      "CI/CD"
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/will-hatcher-07b234229/"
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#about">Skip to content</a>
@@ -512,6 +591,9 @@
 
         <div class="contact__cta">
           <a class="btn" href="mailto:williamchalmershatcher@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> email me</a>
+          <button type="button" class="btn" id="copy-email" data-email="williamchalmershatcher@gmail.com" aria-label="Copy email address to clipboard">
+            <i class="fas fa-copy" aria-hidden="true"></i> <span class="copy-email__label">copy email</span>
+          </button>
           <a class="btn" href="https://www.linkedin.com/in/will-hatcher-07b234229/" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i> linkedin</a>
           <a class="btn btn--mag" href="Resume_William_Hatcher.pdf" download><i class="fas fa-file-arrow-down" aria-hidden="true"></i> resume</a>
         </div>

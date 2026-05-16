@@ -815,6 +815,17 @@ h3 { font-weight: 500; }
   margin-top: 2rem;
 }
 
+/* Copy-email button — briefly shows a lime "copied" state on success. */
+#copy-email.is-copied {
+  border-color: var(--accent-lime);
+  color: var(--accent-lime);
+}
+#copy-email.is-copied:hover {
+  background: var(--accent-lime);
+  color: var(--bg-0);
+  box-shadow: 0 0 12px rgba(163, 230, 53, 0.55);
+}
+
 /* =========================================================
    Footer
    ========================================================= */

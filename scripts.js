@@ -281,4 +281,48 @@
   } else {
     document.addEventListener('DOMContentLoaded', initParticles);
   }
+
+  // ===========================================================
+  // Copy-email button — writes the address to clipboard and shows
+  // brief inline feedback on the button itself (no toast).
+  // ===========================================================
+  const copyBtn = document.getElementById('copy-email');
+  if (copyBtn) {
+    const labelEl = copyBtn.querySelector('.copy-email__label');
+    const originalLabel = labelEl ? labelEl.textContent : 'copy email';
+
+    async function writeToClipboard(text) {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+        return;
+      }
+      // Fallback for non-secure contexts / older browsers
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'absolute';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    }
+
+    copyBtn.addEventListener('click', async () => {
+      const email = copyBtn.dataset.email;
+      if (!email) return;
+      try {
+        await writeToClipboard(email);
+        copyBtn.classList.add('is-copied');
+        if (labelEl) labelEl.textContent = 'copied!';
+        setTimeout(() => {
+          copyBtn.classList.remove('is-copied');
+          if (labelEl) labelEl.textContent = originalLabel;
+        }, 2000);
+      } catch (err) {
+        if (labelEl) labelEl.textContent = 'copy failed';
+        setTimeout(() => { if (labelEl) labelEl.textContent = originalLabel; }, 2000);
+      }
+    });
+  }
 })();
