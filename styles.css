@@ -142,10 +142,15 @@ h3 { font-weight: 500; }
 #skills::after      { animation-delay: -16s; }
 #contact::before    { animation-delay: -18s; }
 #contact::after     { animation-delay: -22s; }
-@media (max-width: 767px) {
+@media (max-width: 899px) {
+  /* Same story for section orbs — freeze + lower blur radius on mobile. */
   .section:not(.section--alt)::before,
   .section:not(.section--alt)::after {
-    width: 500px; height: 500px; filter: blur(80px); opacity: 0.27;
+    width: 500px;
+    height: 500px;
+    filter: blur(40px);
+    opacity: 0.22;
+    animation: none !important;
   }
   .section:not(.section--alt)::before { top: -180px; left: -160px; }
   .section:not(.section--alt)::after  { bottom: -180px; right: -160px; }
@@ -323,8 +328,16 @@ h3 { font-weight: 500; }
   right: -260px;
   animation: orbDriftB 28s ease-in-out infinite;
 }
-@media (max-width: 767px) {
-  .hero__orb { width: 540px; height: 540px; filter: blur(80px); opacity: 0.38; }
+@media (max-width: 899px) {
+  /* Mobile/tablet performance: shrink, drop blur radius, and freeze orb motion.
+     Animated giant blurs are the #1 cost on mobile GPUs. */
+  .hero__orb {
+    width: 540px;
+    height: 540px;
+    filter: blur(40px);
+    opacity: 0.32;
+    animation: none !important;
+  }
   .hero__orb--cyan { top: -160px; left: -160px; }
   .hero__orb--mag  { bottom: -180px; right: -180px; }
 }
@@ -1111,6 +1124,39 @@ h3 { font-weight: 500; }
   outline: 2px solid var(--accent-cyan);
   outline-offset: 3px;
   border-radius: 4px;
+}
+
+/* =========================================================
+   Mobile performance pass
+   Mobile GPUs choke on continuous large-radius blurs and
+   backdrop-filter. Below 900px we trade some visual fidelity
+   for steady 60fps scrolling.
+   ========================================================= */
+@media (max-width: 899px) {
+  /* Glass nav -> solid translucent fill. backdrop-filter is
+     re-evaluated every scroll frame on mobile. */
+  .nav {
+    background: rgba(5, 6, 10, 0.95);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  /* Freeze the moving scanline mask on the headshot. Duotone tint stays. */
+  .hero__avatar-mask::after { animation: none; }
+
+  /* The full-viewport grid pattern is fixed-positioned with a mask;
+     fixed + mask + scroll on mobile is jank-prone. Drop it on small screens. */
+  body::before { display: none; }
+
+  /* Skip rendering off-screen cards until they're scrolled near.
+     contain-intrinsic-size reserves space so the scrollbar doesn't jump. */
+  .skill-card,
+  .tl-item,
+  .proj-card,
+  .edu-card {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 480px;
+  }
 }
 
 /* =========================================================
