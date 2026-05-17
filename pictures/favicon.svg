@@ -1,7 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <rect width="64" height="64" rx="12" fill="#05060A"/>
-  <rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="#22D3EE" stroke-width="2"/>
-  <text x="32" y="44" text-anchor="middle"
-        font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace"
-        font-size="36" font-weight="700" fill="#22D3EE">&gt;_</text>
+  <text x="32" y="45" text-anchor="middle"
+        font-family="ui-monospace, 'JetBrains Mono', 'Courier New', monospace"
+        font-size="34" font-weight="700" fill="#22D3EE">WH</text>
 </svg>
