@@ -325,4 +325,63 @@
       }
     });
   }
+
+  // ===========================================================
+  // Contact form - submits to Formspree with inline feedback.
+  // ===========================================================
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    const statusEl = document.getElementById('contact-form-status');
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const defaultSubmitHtml = submitBtn ? submitBtn.innerHTML : '';
+
+    function setFormStatus(message, state) {
+      if (!statusEl) return;
+      statusEl.textContent = message;
+      if (state) statusEl.dataset.state = state;
+      else delete statusEl.dataset.state;
+    }
+
+    contactForm.addEventListener('submit', async (event) => {
+      if (!window.fetch || !window.FormData) return;
+      event.preventDefault();
+
+      setFormStatus('Sending...', 'pending');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> sending';
+      }
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { Accept: 'application/json' },
+        });
+
+        if (!response.ok) {
+          let message = 'Message failed to send. Please try email instead.';
+          try {
+            const data = await response.json();
+            if (Array.isArray(data.errors) && data.errors.length) {
+              message = data.errors.map(error => error.message).join(' ');
+            }
+          } catch (jsonErr) {
+            // Keep the generic message when Formspree returns non-JSON.
+          }
+          throw new Error(message);
+        }
+
+        contactForm.reset();
+        setFormStatus('Message sent. Thanks for reaching out.', 'success');
+      } catch (err) {
+        setFormStatus(err.message || 'Message failed to send. Please try email instead.', 'error');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = defaultSubmitHtml;
+        }
+      }
+    });
+  }
 })();

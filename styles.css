@@ -803,9 +803,95 @@ h3 { font-weight: 500; }
 .terminal__line { display: block; min-height: 1.5em; }
 .terminal__prompt { color: var(--text-1); }
 .terminal__cmd { color: var(--text-0); }
-.terminal__out { color: var(--accent-cyan); padding-left: 1rem; }
+.terminal__out {
+  color: var(--accent-cyan);
+  overflow-wrap: anywhere;
+  padding-left: 1rem;
+}
 .terminal__out a { color: var(--accent-cyan); }
 .terminal__out a:hover { color: var(--accent-mag); }
+
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 720px;
+  margin: 2rem auto 0;
+  padding: 1.25rem;
+  background: rgba(17, 24, 39, 0.82);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+@media (min-width: 700px) {
+  .contact-form { grid-template-columns: 1fr 1fr; }
+}
+
+.contact-form__field {
+  display: grid;
+  gap: 0.4rem;
+  color: var(--text-1);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.contact-form__field--full,
+.contact-form__actions {
+  grid-column: 1 / -1;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-0);
+  color: var(--text-0);
+  font: inherit;
+  font-family: var(--font-sans);
+  padding: 0.8rem 0.9rem;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.contact-form textarea {
+  min-height: 9rem;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: var(--glow-cyan);
+  outline: none;
+}
+
+.contact-form__honeypot {
+  display: none;
+}
+
+.contact-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contact-form__actions .btn:disabled {
+  cursor: progress;
+  opacity: 0.7;
+  transform: none;
+}
+
+.contact-form__status {
+  min-height: 1.5em;
+  margin: 0;
+  color: var(--text-1);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.contact-form__status[data-state="success"] { color: var(--accent-lime); }
+.contact-form__status[data-state="error"] { color: var(--accent-mag); }
 
 .contact__cta {
   display: flex;

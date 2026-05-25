@@ -604,6 +604,32 @@
           </div>
         </div>
 
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/mojbkwng" method="POST" data-reveal>
+          <input type="hidden" name="_subject" value="New message from williamhatcher.ca" />
+          <label class="contact-form__field">
+            <span>Name</span>
+            <input type="text" name="name" autocomplete="name" required />
+          </label>
+          <label class="contact-form__field">
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" required />
+          </label>
+          <label class="contact-form__field contact-form__field--full">
+            <span>Message</span>
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <label class="contact-form__honeypot" aria-hidden="true">
+            <span>Leave this field empty</span>
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+          </label>
+          <div class="contact-form__actions">
+            <button class="btn btn--mag" type="submit">
+              <i class="fas fa-paper-plane" aria-hidden="true"></i> send message
+            </button>
+            <p class="contact-form__status" id="contact-form-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+
         <div class="contact__cta">
           <a class="btn" href="mailto:williamchalmershatcher@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> email me</a>
           <button type="button" class="btn" id="copy-email" data-email="williamchalmershatcher@gmail.com" aria-label="Copy email address to clipboard">
