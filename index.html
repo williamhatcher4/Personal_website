@@ -38,6 +38,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
@@ -105,6 +106,26 @@
     ]
   }
   </script>
+
+  <!-- Google Analytics (GA4). Resume downloads are captured automatically by
+       Enhanced Measurement's file_download event; the resume links carry ids so
+       the hero / contact / footer CTAs can be told apart via link_id.
+       Only fires on the live domain, so localhost, file:// and Cloudflare Pages
+       *.pages.dev preview deploys stay out of the data. -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    (function () {
+      var host = location.hostname;
+      if (host !== 'williamhatcher.ca' && host !== 'www.williamhatcher.ca') return;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-3L6B0PJNTR';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-3L6B0PJNTR');
+    })();
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#about">Skip to content</a>
@@ -171,7 +192,7 @@
           <div class="hero__cta">
             <a href="#projects" class="btn"><i class="fas fa-rocket" aria-hidden="true"></i> view projects</a>
             <a href="https://www.linkedin.com/in/will-hatcher-07b234229/" target="_blank" rel="noopener" class="btn"><i class="fab fa-linkedin" aria-hidden="true"></i> linkedin</a>
-            <a href="Resume_William_Hatcher.pdf" download class="btn btn--mag"><i class="fas fa-file-arrow-down" aria-hidden="true"></i> resume</a>
+            <a id="resume-hero" href="Resume_William_Hatcher.pdf" download class="btn btn--mag"><i class="fas fa-file-arrow-down" aria-hidden="true"></i> resume</a>
           </div>
         </div>
       </div>
@@ -636,7 +657,7 @@
             <i class="fas fa-copy" aria-hidden="true"></i> <span class="copy-email__label">copy email</span>
           </button>
           <a class="btn" href="https://www.linkedin.com/in/will-hatcher-07b234229/" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i> linkedin</a>
-          <a class="btn btn--mag" href="Resume_William_Hatcher.pdf" download><i class="fas fa-file-arrow-down" aria-hidden="true"></i> resume</a>
+          <a id="resume-contact" class="btn btn--mag" href="Resume_William_Hatcher.pdf" download><i class="fas fa-file-arrow-down" aria-hidden="true"></i> resume</a>
         </div>
       </div>
     </section>
@@ -646,7 +667,7 @@
   <footer class="footer">
     <div>&copy; 2026 william.hatcher &nbsp;//&nbsp; hand-built in html, css, and a little javascript</div>
     <div class="footer__links">
-      <a class="footer__pill" href="Resume_William_Hatcher.pdf" download><i class="fas fa-file-pdf" aria-hidden="true"></i> Resume</a>
+      <a id="resume-footer" class="footer__pill" href="Resume_William_Hatcher.pdf" download><i class="fas fa-file-pdf" aria-hidden="true"></i> Resume</a>
     </div>
     <div class="footer__socials">
       <a href="mailto:williamchalmershatcher@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
