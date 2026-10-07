@@ -114,7 +114,7 @@
     const phrases = [
       'Embedded & Systems Software Engineer',
       'Hardware-in-the-loop architect',
-      'Imperial College London MSc-bound',
+      'MSc Computing @ Imperial College London',
     ];
     if (prefersReduced) {
       twEl.textContent = phrases[0];
