@@ -151,7 +151,7 @@
   if (termBody) {
     const lines = [
       { type: 'prompt', text: '$ whoami' },
-      { type: 'out',    text: 'William Hatcher — Oakville, ON, Canada' },
+      { type: 'out',    text: 'William Hatcher — London, UK' },
       { type: 'prompt', text: '$ contact --email' },
       { type: 'out',    html: '<a href="mailto:williamchalmershatcher@gmail.com">williamchalmershatcher@gmail.com</a>' },
       { type: 'prompt', text: '$ contact --linkedin' },

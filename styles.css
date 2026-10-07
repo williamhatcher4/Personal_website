@@ -47,6 +47,7 @@ a { color: var(--accent-cyan); text-decoration: none; }
 a:hover { color: var(--accent-mag); }
 
 img { max-width: 100%; height: auto; display: block; }
+img[hidden] { display: none; }
 
 ::selection { background: var(--accent-cyan); color: var(--bg-0); }
 

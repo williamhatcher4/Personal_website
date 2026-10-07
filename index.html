@@ -182,12 +182,12 @@
             <span id="typewriter"></span><span class="caret">_</span>
           </p>
           <ul class="status-row" aria-label="Status">
-            <li><span class="status-dot status-dot--live" aria-hidden="true"></span> currently @ Geotab</li>
-            <li><i class="fas fa-location-dot" aria-hidden="true"></i> Oakville, ON</li>
+            <li><span class="status-dot status-dot--live" aria-hidden="true"></span> currently @ Imperial College London</li>
+            <li><i class="fas fa-location-dot" aria-hidden="true"></i> London, UK</li>
             <li><i class="fas fa-graduation-cap" aria-hidden="true"></i> Queen's BEng '26 &rarr; Imperial MSc</li>
           </ul>
           <p class="hero__tagline">
-            Recent Computer Engineering graduate from Queen's University. Building reliable systems that combine embedded hardware, scalable software, and real-world sensing.
+            Recent Computer Engineering graduate from Queen's University, now at Imperial College London. Building reliable systems that combine embedded hardware, scalable software, and real-world sensing.
           </p>
           <div class="hero__cta">
             <a href="#projects" class="btn"><i class="fas fa-rocket" aria-hidden="true"></i> view projects</a>
@@ -226,6 +226,11 @@
           <span class="marquee__item">Linux <span class="dot">●</span></span>
           <span class="marquee__item">GDB <span class="dot">●</span></span>
           <span class="marquee__item">JTAG <span class="dot">●</span></span>
+          <span class="marquee__item">Verilog <span class="dot">●</span></span>
+          <span class="marquee__item">PyTorch <span class="dot">●</span></span>
+          <span class="marquee__item">XGBoost <span class="dot">●</span></span>
+          <span class="marquee__item">gRPC <span class="dot">●</span></span>
+          <span class="marquee__item">GitLab CI <span class="dot">●</span></span>
         </div>
         <div class="marquee__group" aria-hidden="true">
           <span class="marquee__item">C <span class="dot">●</span></span>
@@ -248,6 +253,11 @@
           <span class="marquee__item">Linux <span class="dot">●</span></span>
           <span class="marquee__item">GDB <span class="dot">●</span></span>
           <span class="marquee__item">JTAG <span class="dot">●</span></span>
+          <span class="marquee__item">Verilog <span class="dot">●</span></span>
+          <span class="marquee__item">PyTorch <span class="dot">●</span></span>
+          <span class="marquee__item">XGBoost <span class="dot">●</span></span>
+          <span class="marquee__item">gRPC <span class="dot">●</span></span>
+          <span class="marquee__item">GitLab CI <span class="dot">●</span></span>
         </div>
       </div>
     </div>
@@ -260,10 +270,10 @@
         <div class="about__grid">
           <div class="about__text">
             <p data-reveal>
-              I'm a recent Computer Engineering graduate of Queen's University (GPA 3.97, Dean's List), focused on embedded systems, scalable software, and hardware–software integration. During my degree I built Zephyr RTOS sensing platforms on Nordic nRF52 microcontrollers at Queen's ePOWER lab, and previously interned at Geotab designing multi-threaded TCP/IP communication software and deploying a 26-station hardware-in-the-loop testing infrastructure for embedded telematics devices — I'm now back at Geotab for a 4-month embedded engineering term.
+              I'm a recent Computer Engineering graduate of Queen's University (GPA 3.97, Dean's List), focused on embedded systems, scalable software, and hardware–software integration. During my degree I built Zephyr RTOS sensing platforms on Nordic nRF52 microcontrollers at Queen's ePOWER lab, and previously interned at Geotab designing multi-threaded TCP/IP communication software and deploying a 26-station hardware-in-the-loop testing infrastructure for embedded telematics devices — and returned for a summer 2026 term building HIL infrastructure for Geotab's next-generation telematics device.
             </p>
             <p data-reveal>
-              In September 2026 I'll begin an MSc in Computing (Software Engineering) at Imperial College London, continuing to build systems that combine reliable software, embedded hardware, and real-world sensing. Alongside my degree I served as Co-President and Director of Competitive Esports at the Queen's Esports Association, leading operations for a 500+ member student organization.
+              I'm now pursuing an MSc in Computing (Software Engineering) at Imperial College London, continuing to build systems that combine reliable software, embedded hardware, and real-world sensing. Alongside my degree I served as Co-President and Director of Competitive Esports at the Queen's Esports Association, leading operations for a 500+ member student organization.
             </p>
           </div>
           <div class="stats" data-reveal>
@@ -294,17 +304,23 @@
               <div class="tl-card__head">
                 <img class="tl-card__img" src="pictures/Geotab.png" alt="Geotab logo" loading="lazy" decoding="async" width="56" height="56" />
                 <div>
-                  <h3 class="tl-card__title">Embedded Engineer — Returning Term</h3>
+                  <h3 class="tl-card__title">Embedded Engineering Intern — Quality &amp; Test Automation (Returning Term)</h3>
                   <div class="tl-card__meta">Geotab, Embedded Engineering &mdash; <span class="tl-card__date">May 2026 — Aug 2026</span></div>
                 </div>
               </div>
               <ul>
-                <li>Returning to the Embedded Engineering team for a 4-month term before starting the MSc at Imperial.</li>
-                <li>Continuing work on hardware-in-the-loop test infrastructure and embedded telematics systems.</li>
+                <li>Built the hardware-in-the-loop test topology for Geotab's next-generation telematics device end to end, the first rigs of their kind, from physical rig construction to Python framework support, and deployed 4 rigs of the new design used by multiple engineering teams.</li>
+                <li>Integrated and debugged custom interface PCBs bridging the devices under test and Raspberry Pi hosts over I²C (C++ gRPC services), isolating faults across hardware, firmware and host software.</li>
+                <li>Extended the Pytest smoke suites and GitLab CI/CD pipelines (YAML) to cover the new rigs, whose internal control logic differed substantially from the existing fleet.</li>
+                <li>Owned reliability of the HIL fleet as the go-to on-site engineer: monitored live failures, traced root causes and deployed fixes quickly.</li>
+                <li>Restructured pcapng / ASC (CAN) log capture in the Python test framework from a single shared folder into per-run, per-test directories, and reworked how CI collects and displays log artifacts, making every failure traceable to its exact capture.</li>
+                <li>Built an inventory tracking system for HIL rig components (spreadsheet backend with a web UI) with automated Gmail low-stock alerts, so rig builds never stall on parts.</li>
+                <li>Led a cohort of 6 new interns: ran their onboarding and integration into the team, assigned and tracked work for 3 of them, and handled their day-to-day blockers.</li>
               </ul>
               <ul class="chips">
-                <li class="chip chip--mag">Current</li>
-                <li class="chip">Embedded</li><li class="chip">HIL</li>
+                <li class="chip">HIL</li><li class="chip">Python</li>
+                <li class="chip">I²C</li><li class="chip">GitLab CI/CD</li>
+                <li class="chip chip--mag">Leadership</li>
               </ul>
             </div>
           </article>
@@ -428,13 +444,38 @@
                 <li>Implemented wireless command and telemetry communication over 433 MHz RF, enabling remote monitoring and control between the satellite and ground station.</li>
                 <li>Integrated subsystem communication over I²C between flight computer and control subsystems, enabling coordinated telemetry collection and command execution.</li>
                 <li>Built a high-frequency telemetry pipeline to collect sensor and subsystem data for machine learning–based anomaly detection, modifying firmware timing and packet scheduling to increase dataset resolution.</li>
-                <li>Designed experiments and injected controlled faults into subsystem firmware to generate labeled datasets for training and evaluating anomaly detection models.</li>
+                <li>Designed experiments and injected controlled faults into subsystem firmware to generate labelled datasets, then trained XGBoost models for anomaly detection on the resulting telemetry.</li>
                 <li>Performed board bring-up, firmware flashing, and debugging across multiple microcontroller platforms (STM32L4, MSP430) and satellite subsystems.</li>
               </ul>
               <ul class="chips">
                 <li class="chip">Embedded C++</li><li class="chip">Arduino</li>
                 <li class="chip">RF</li><li class="chip">I²C</li>
                 <li class="chip chip--lime">ML</li><li class="chip">STM32</li>
+                <li class="chip chip--lime">XGBoost</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- RISC CPU -->
+          <article class="proj-card" data-reveal>
+            <div class="proj-card__cover">
+              <img src="pictures/riscv_cpu.png" alt="32-bit RISC processor datapath and simulation waveforms" loading="lazy" decoding="async" onerror="this.hidden=true" />
+            </div>
+            <div class="proj-card__body">
+              <div class="proj-card__index">&gt; 02</div>
+              <h3 class="proj-card__title">32-bit RISC Processor (Mini SRC)</h3>
+              <div class="proj-card__meta">Digital Systems Engineering &middot; Team of 3 &middot; Jan — Apr 2026</div>
+              <ul>
+                <li>Designed a 32-bit multi-cycle, single-bus RISC processor in Verilog with a 16-register file, HI/LO registers, 512-word memory, I/O ports and a hardwired finite-state-machine control unit (fetch, decode and up to six execute states).</li>
+                <li>Personally implemented the signed 32-bit non-restoring divider (quotient to LO, remainder to HI), the synchronous 512-word RAM, and the top-level CPU integration.</li>
+                <li>The ALU supports 13 operations, including a radix-4 Booth multiplier with bit-pair recoding that halves the partial products from 32 to 16.</li>
+                <li>Extended the ISA beyond the specification with immediate-operand shifts (SHRI, SHLI, SHRAI) and a hardware-managed stack (PUSH/POP using R14 as the stack pointer).</li>
+                <li>Built bottom-up with per-module testbenches and full regression across 32 instructions; ran the benchmark program at a CPI of 6.7 in cycle-accurate simulation (Icarus Verilog + GTKWave).</li>
+              </ul>
+              <ul class="chips">
+                <li class="chip">Verilog</li><li class="chip">Computer Architecture</li>
+                <li class="chip">RTL Design</li><li class="chip">Icarus Verilog</li>
+                <li class="chip">GTKWave</li>
               </ul>
             </div>
           </article>
@@ -445,14 +486,14 @@
               <img src="pictures/taxi.png" alt="Autonomous PiCar-X taxi robot" loading="lazy" decoding="async" />
             </div>
             <div class="proj-card__body">
-              <div class="proj-card__index">&gt; 02</div>
+              <div class="proj-card__index">&gt; 03</div>
               <h3 class="proj-card__title">Autonomous Taxi System</h3>
-              <div class="proj-card__meta">Embedded Robotics Project</div>
+              <div class="proj-card__meta">Embedded Robotics Project &middot; Team of 2</div>
               <ul>
                 <li>Architected and implemented a finite-state machine (FSM) control system for autonomous navigation, handling lane following, stop/yield logic, and intersection maneuvers.</li>
                 <li>Developed real-time embedded control software on Raspberry Pi integrating line sensors and camera input for lane tracking and navigation decisions.</li>
                 <li>Implemented computer vision pipelines in OpenCV for lane detection and preprocessing of camera frames for traffic sign classification.</li>
-                <li>Integrated TensorFlow Lite CNN models accelerated with Coral Edge TPU for low-latency traffic sign classification within constrained embedded compute budgets.</li>
+                <li>Integrated TensorFlow Lite CNN models accelerated with Coral Edge TPU for low-latency traffic sign classification within constrained embedded compute budgets, achieving near-real-time detection.</li>
                 <li>Implemented dataset preprocessing and augmentation (rotation, scaling, brightness variation) to improve model robustness to lighting and viewpoint variation.</li>
                 <li>Designed a modular robotics software architecture separating perception, decision logic, and control layers to support deterministic behavior and subsystem testing.</li>
               </ul>
@@ -464,13 +505,57 @@
             </div>
           </article>
 
+          <!-- CLIP retrieval -->
+          <article class="proj-card" data-reveal>
+            <div class="proj-card__cover">
+              <img src="pictures/clip_retrieval.png" alt="Top 5 image retrieval results for the query 'Person'" loading="lazy" decoding="async" onerror="this.hidden=true" />
+            </div>
+            <div class="proj-card__body">
+              <div class="proj-card__index">&gt; 04</div>
+              <h3 class="proj-card__title">CLIP-Style Image–Text Retrieval</h3>
+              <div class="proj-card__meta">Computer Vision (Deep Learning) &middot; Team of 2 &middot; Fall 2025</div>
+              <ul>
+                <li>Trained a ResNet50 image encoder (ImageNet-initialised) with a two-layer GELU projection head to map images into the embedding space of a frozen CLIP ViT-B/32 text encoder.</li>
+                <li>Optimised with InfoNCE contrastive loss over in-batch image–text similarity matrices on COCO 2014 image–caption pairs.</li>
+                <li>Improved generalisation with normalisation, dropout, EMA weights, cosine-annealed AdamW and image augmentation, lifting every Recall@K metric over the baseline.</li>
+                <li>Final results: image→text R@1 / R@5 / R@10 of 0.694 / 0.913 / 0.967; text→image R@10 of 0.933.</li>
+              </ul>
+              <ul class="chips">
+                <li class="chip chip--lime">PyTorch</li><li class="chip">Hugging Face</li>
+                <li class="chip">Contrastive Learning</li><li class="chip">CLIP</li>
+                <li class="chip">COCO</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Segmentation & distillation -->
+          <article class="proj-card" data-reveal>
+            <div class="proj-card__cover">
+              <img src="pictures/segmentation.png" alt="Semantic segmentation overlays on PASCAL VOC images" loading="lazy" decoding="async" onerror="this.hidden=true" />
+            </div>
+            <div class="proj-card__body">
+              <div class="proj-card__index">&gt; 05</div>
+              <h3 class="proj-card__title">Lightweight Semantic Segmentation &amp; Knowledge Distillation</h3>
+              <div class="proj-card__meta">Computer Vision (Deep Learning) &middot; Team of 2 &middot; Fall 2025</div>
+              <ul>
+                <li>Built an 11.2M-parameter segmentation model: a ResNet18 encoder with dilated convolutions at output stride 16 and a lightweight multi-scale feature-fusion decoder.</li>
+                <li>Reached 0.483 validation mIoU on PASCAL VOC 2012 at about 1 ms per image, trained with mixed precision on a single 8 GB GPU.</li>
+                <li>Implemented response-based (KL divergence, T = 4) and feature-based (cosine similarity) distillation from an FCN-ResNet50 teacher, and benchmarked four configurations against the non-distilled baseline.</li>
+              </ul>
+              <ul class="chips">
+                <li class="chip chip--lime">PyTorch</li><li class="chip">Semantic Segmentation</li>
+                <li class="chip">Knowledge Distillation</li><li class="chip">ResNet</li>
+              </ul>
+            </div>
+          </article>
+
           <!-- Anti-theft -->
           <article class="proj-card" data-reveal>
             <div class="proj-card__cover">
               <img src="pictures/Anti-theft-project.png" alt="Anti-theft package security system prototype" loading="lazy" decoding="async" />
             </div>
             <div class="proj-card__body">
-              <div class="proj-card__index">&gt; 03</div>
+              <div class="proj-card__index">&gt; 06</div>
               <h3 class="proj-card__title">Anti-theft Package Security System</h3>
               <div class="proj-card__meta">Queen's University, Engineering Department</div>
               <ul>
@@ -493,7 +578,7 @@
               <img src="pictures/Medical_hackathon.png" alt="Interactive IV insertion simulator prototype" loading="lazy" decoding="async" />
             </div>
             <div class="proj-card__body">
-              <div class="proj-card__index">&gt; 04</div>
+              <div class="proj-card__index">&gt; 07</div>
               <h3 class="proj-card__title">Interactive IV Insertion Simulator</h3>
               <div class="proj-card__meta">Queen's University, Engineering Department</div>
               <ul>
@@ -525,8 +610,8 @@
             <h3 class="skill-card__title"><i class="fas fa-code" aria-hidden="true"></i> Languages</h3>
             <ul class="chips">
               <li class="chip">C</li><li class="chip">C++</li><li class="chip">Python</li>
-              <li class="chip">Java</li><li class="chip">VHDL</li><li class="chip">Assembly</li>
-              <li class="chip">Bash</li>
+              <li class="chip">Java</li><li class="chip">VHDL</li><li class="chip">Verilog</li>
+              <li class="chip">Assembly (Nios II, x86-64)</li><li class="chip">Bash</li>
             </ul>
           </article>
 
@@ -534,7 +619,7 @@
             <div class="skill-card__index">&gt; 02_devops</div>
             <h3 class="skill-card__title"><i class="fas fa-gears" aria-hidden="true"></i> DevOps &amp; Automation</h3>
             <ul class="chips">
-              <li class="chip">Git</li><li class="chip">CI/CD</li><li class="chip">Docker</li>
+              <li class="chip">Git</li><li class="chip">GitLab CI/CD</li><li class="chip">Docker</li>
               <li class="chip">Ansible</li><li class="chip">Pytest</li>
             </ul>
           </article>
@@ -544,6 +629,7 @@
             <h3 class="skill-card__title"><i class="fas fa-network-wired" aria-hidden="true"></i> Communication Protocols</h3>
             <ul class="chips">
               <li class="chip">UART</li><li class="chip">CAN</li><li class="chip">I²C</li><li class="chip">SPI</li>
+              <li class="chip">TCP/IP</li><li class="chip">gRPC</li>
             </ul>
           </article>
 
@@ -553,6 +639,7 @@
             <ul class="chips">
               <li class="chip">JTAG</li><li class="chip">GDB</li>
               <li class="chip">PCAN-USB</li><li class="chip">Serial Debugging</li>
+              <li class="chip">Icarus Verilog</li><li class="chip">GTKWave</li>
             </ul>
           </article>
 
@@ -561,6 +648,15 @@
             <h3 class="skill-card__title"><i class="fas fa-microchip" aria-hidden="true"></i> Embedded Systems</h3>
             <ul class="chips">
               <li class="chip">Arduino (ARM)</li><li class="chip">Raspberry Pi (Linux)</li><li class="chip">FPGA</li>
+            </ul>
+          </article>
+
+          <article class="skill-card" data-reveal>
+            <div class="skill-card__index">&gt; 06_ml</div>
+            <h3 class="skill-card__title"><i class="fas fa-brain" aria-hidden="true"></i> Machine Learning</h3>
+            <ul class="chips">
+              <li class="chip">PyTorch</li><li class="chip">Hugging Face</li><li class="chip">XGBoost</li>
+              <li class="chip">TensorFlow Lite</li><li class="chip">OpenCV</li><li class="chip">Coral Edge TPU</li>
             </ul>
           </article>
         </div>
@@ -576,6 +672,20 @@
         <div class="edu-grid">
           <article class="edu-card" data-reveal>
             <div class="edu-card__head">
+              <img class="edu-card__logo" src="pictures/Imperial_logo.png" alt="Imperial College London logo" loading="lazy" decoding="async" width="64" height="64" onerror="this.hidden=true" />
+              <div>
+                <h3 class="edu-card__title">Imperial College London</h3>
+                <div class="edu-card__sub">MSc Computing (Software Engineering) &middot; <span class="accent">Sept 2026 — Sept 2027 (expected)</span></div>
+                <div class="edu-card__sub">London, UK</div>
+              </div>
+            </div>
+            <div class="edu-card__courses">
+              <strong>Modules:</strong> Advanced Computer Architecture, Machine Learning Systems &amp; Hardware, Scalable Systems &amp; Data, Scheduling &amp; Resource Allocation, Software Engineering for Industry, Advanced Computer Security, Generative AI, Networked Systems, Software Engineering for Machine Learning Systems.
+            </div>
+          </article>
+
+          <article class="edu-card" data-reveal>
+            <div class="edu-card__head">
               <img class="edu-card__logo" src="pictures/QueensLogo_colour.png" alt="Queen's University crest" loading="lazy" decoding="async" width="64" height="64" />
               <div>
                 <h3 class="edu-card__title">Queen's University</h3>
@@ -585,7 +695,7 @@
               </div>
             </div>
             <div class="edu-card__courses">
-              <strong>Notable courses:</strong> Digital Systems, Computer Architecture, Data Structures, Autonomous Robotics, Object Oriented Programming, Microprocessor Systems, Operating Systems, Algorithms, Safety Critical Software Engineering, Machine Learning, Computer Vision.
+              <strong>Notable courses:</strong> Digital Systems, Computer Architecture, Data Structures, Autonomous Robotics, Object Oriented Programming, Microprocessor Systems, Operating Systems, Algorithms, Safety Critical Software Engineering, Machine Learning, Computer Vision (Deep Learning).
             </div>
           </article>
 
@@ -616,7 +726,7 @@
           <div class="terminal__body" id="terminal-body">
             <noscript>
               <div class="terminal__line"><span class="terminal__prompt">$</span> <span class="terminal__cmd">whoami</span></div>
-              <div class="terminal__out">William Hatcher — Oakville, ON, Canada</div>
+              <div class="terminal__out">William Hatcher — London, UK</div>
               <div class="terminal__line"><span class="terminal__prompt">$</span> <span class="terminal__cmd">contact --email</span></div>
               <div class="terminal__out"><a href="mailto:williamchalmershatcher@gmail.com">williamchalmershatcher@gmail.com</a></div>
               <div class="terminal__line"><span class="terminal__prompt">$</span> <span class="terminal__cmd">contact --linkedin</span></div>
