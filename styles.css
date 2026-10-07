@@ -1088,7 +1088,7 @@ h3 { font-weight: 500; }
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 40%, rgba(34, 211, 238, 0.18), rgba(217, 70, 239, 0.18));
+  background: radial-gradient(circle at 50% 40%, rgba(34, 211, 238, 0.06), rgba(217, 70, 239, 0.06));
   mix-blend-mode: color;
   pointer-events: none;
   z-index: 2;
