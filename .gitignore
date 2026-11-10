@@ -1,0 +1,25 @@
+# ---------------------------------------------------------------
+# Local-only AI assistant context and tooling.
+# Kept on disk as durable project memory; never published.
+# ---------------------------------------------------------------
+AI-Context/
+CLAUDE.md
+AGENTS.md
+.claude/
+
+# Obsidian vault configuration (local editor state)
+.obsidian/
+
+# Local notes not intended for the public repo
+README.md
+
+# ---------------------------------------------------------------
+# OS / editor cruft
+# ---------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.vscode/
+.idea/

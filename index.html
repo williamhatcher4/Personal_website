@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>William Hatcher — Embedded & Systems Software Engineer</title>
+  <meta name="description" content="Portfolio of William Hatcher: embedded systems, hardware-in-the-loop testing, and scalable software engineering." />
+  <meta name="author" content="William Hatcher" />
+  <meta name="theme-color" content="#05060A" />
+  <link rel="canonical" href="https://williamhatcher.ca/" />
+
+  <!-- Search engine ownership verification -->
+  <meta name="msvalidate.01" content="A03C1D0B93BB0761403AC962326DEEFF" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="pictures/favicon.svg" />
+  <link rel="alternate icon" href="pictures/favicon.svg" />
+  <link rel="apple-touch-icon" href="pictures/favicon.svg" />
+
+  <!-- Open Graph (LinkedIn, Slack, iMessage, Facebook) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://williamhatcher.ca/" />
+  <meta property="og:title" content="William Hatcher — Embedded Systems Engineer" />
+  <meta property="og:description" content="Embedded systems, hardware-in-the-loop testing, and scalable software engineering. Queen's BASc '26 → Imperial MSc." />
+  <meta property="og:image" content="https://williamhatcher.ca/pictures/share-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="William Hatcher — Embedded Systems Engineer" />
+  <meta property="og:site_name" content="William Hatcher" />
+  <meta property="og:locale" content="en_CA" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="William Hatcher — Embedded Systems Engineer" />
+  <meta name="twitter:description" content="Embedded systems, hardware-in-the-loop testing, and scalable software engineering. Queen's BASc '26 → Imperial MSc." />
+  <meta name="twitter:image" content="https://williamhatcher.ca/pictures/share-card.png" />
+  <meta name="twitter:image:alt" content="William Hatcher — Embedded Systems Engineer" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- JSON-LD WebSite schema — drives the "site name" shown in Google search results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "William Hatcher",
+    "alternateName": "William Hatcher — Portfolio",
+    "url": "https://williamhatcher.ca/"
+  }
+  </script>
+
+  <!-- JSON-LD Person schema for Google Knowledge Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "William Hatcher",
+    "givenName": "William",
+    "familyName": "Hatcher",
+    "url": "https://williamhatcher.ca/",
+    "image": "https://williamhatcher.ca/pictures/Headshot.jpg",
+    "jobTitle": "Embedded Systems Engineer",
+    "description": "Embedded & systems software engineer focused on hardware-in-the-loop testing, RTOS firmware, and scalable software for real-world sensing.",
+    "email": "mailto:williamchalmershatcher@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "London",
+      "addressCountry": "GB"
+    },
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Queen's University",
+        "sameAs": "https://www.queensu.ca/"
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Nanyang Technological University",
+        "sameAs": "https://www.ntu.edu.sg/"
+      }
+    ],
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Imperial College London",
+      "sameAs": "https://www.imperial.ac.uk/"
+    },
+    "knowsAbout": [
+      "Embedded Systems",
+      "Hardware-in-the-loop Testing",
+      "Zephyr RTOS",
+      "Nordic nRF52",
+      "Bluetooth Low Energy",
+      "Embedded Linux",
+      "C / C++",
+      "Python",
+      "CI/CD",
+      "Verilog",
+      "Computer Architecture",
+      "Machine Learning",
+      "PyTorch"
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/will-hatcher-07b234229/"
+    ]
+  }
+  </script>
+
+  <!-- Google Analytics (GA4). Resume downloads are captured automatically by
+       Enhanced Measurement's file_download event; the resume links carry ids so
+       the hero / contact / footer CTAs can be told apart via link_id.
+       Only fires on the live domain, so localhost, file:// and Cloudflare Pages
+       *.pages.dev preview deploys stay out of the data. -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    (function () {
+      var host = location.hostname;
+      if (host !== 'williamhatcher.ca' && host !== 'www.williamhatcher.ca') return;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-3L6B0PJNTR';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-3L6B0PJNTR');
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#about">Skip to content</a>
+
+  <!-- ============================ NAV ============================ -->
+  <header class="nav" role="banner">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__brand">&gt; william.hatcher</a>
+      <nav aria-label="Primary">
+        <ul class="nav__links">
+          <li><a href="#about" class="nav__link">./about</a></li>
+          <li><a href="#experience" class="nav__link">./experience</a></li>
+          <li><a href="#projects" class="nav__link">./projects</a></li>
+          <li><a href="#skills" class="nav__link">./skills</a></li>
+          <li><a href="#education" class="nav__link">./education</a></li>
+          <li><a href="#contact" class="nav__link">./contact</a></li>
+        </ul>
+      </nav>
+      <button id="menu-btn" class="nav__menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="nav__mobile">
+      <ul>
+        <li><a href="#about">./about</a></li>
+        <li><a href="#experience">./experience</a></li>
+        <li><a href="#projects">./projects</a></li>
+        <li><a href="#skills">./skills</a></li>
+        <li><a href="#education">./education</a></li>
+        <li><a href="#contact">./contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================ HERO ============================ -->
+    <section id="hero" class="hero" aria-labelledby="hero-title">
+      <div id="particles" aria-hidden="true"></div>
+      <div class="hero__orb hero__orb--cyan" aria-hidden="true"></div>
+      <div class="hero__orb hero__orb--mag" aria-hidden="true"></div>
+      <div class="hero__inner">
+        <div class="hero__avatar-wrap">
+          <div class="hero__avatar-ring" aria-hidden="true"></div>
+          <div class="hero__avatar-mask">
+            <img class="hero__avatar" src="pictures/Headshot.jpg" alt="Portrait of William Hatcher" width="180" height="180" />
+          </div>
+        </div>
+        <div class="hero__headline">
+          <p class="kicker">// <span class="accent">embedded.systems.engineer</span> //</p>
+          <h1 id="hero-title" class="hero__name">
+            William <span class="accent glitch" data-text="Hatcher">Hatcher</span>
+          </h1>
+          <p class="hero__subtitle">
+            <span id="typewriter"></span><span class="caret">_</span>
+          </p>
+          <ul class="status-row" aria-label="Status">
+            <li><span class="status-dot status-dot--live" aria-hidden="true"></span> currently @ Imperial College London</li>
+            <li><i class="fas fa-location-dot" aria-hidden="true"></i> London, UK</li>
+            <li><i class="fas fa-graduation-cap" aria-hidden="true"></i> Queen's BASc '26 &rarr; Imperial MSc</li>
+          </ul>
+          <p class="hero__tagline">
+            Recent Computer Engineering graduate from Queen's University, now at Imperial College London. Building reliable systems that combine embedded hardware, scalable software, and real-world sensing.
+          </p>
+          <div class="hero__cta">
+            <a href="#projects" class="btn"><i class="fas fa-rocket" aria-hidden="true"></i> view projects</a>
+            <a href="https://www.linkedin.com/in/will-hatcher-07b234229/" target="_blank" rel="noopener" class="btn"><i class="fab fa-linkedin" aria-hidden="true"></i> linkedin</a>
+            <a id="resume-hero" href="Resume_William_Hatcher.pdf" download class="btn btn--mag"><i class="fas fa-file-arrow-down" aria-hidden="true"></i> resume</a>
+          </div>
+        </div>
+      </div>
+      <a href="#about" class="hero__scroll" aria-label="Scroll to content">
+        <span>scroll</span>
+        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <!-- ============================ TECH MARQUEE ============================ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <div class="marquee__group">
+          <span class="marquee__item">C <span class="dot">●</span></span>
+          <span class="marquee__item">Python <span class="dot">●</span></span>
+          <span class="marquee__item">Zephyr RTOS <span class="dot">●</span></span>
+          <span class="marquee__item">Nordic nRF52 <span class="dot">●</span></span>
+          <span class="marquee__item">BLE <span class="dot">●</span></span>
+          <span class="marquee__item">CAN <span class="dot">●</span></span>
+          <span class="marquee__item">I²C <span class="dot">●</span></span>
+          <span class="marquee__item">SPI <span class="dot">●</span></span>
+          <span class="marquee__item">UART <span class="dot">●</span></span>
+          <span class="marquee__item">Raspberry Pi <span class="dot">●</span></span>
+          <span class="marquee__item">STM32 <span class="dot">●</span></span>
+          <span class="marquee__item">POSIX threads <span class="dot">●</span></span>
+          <span class="marquee__item">CI/CD <span class="dot">●</span></span>
+          <span class="marquee__item">Pytest <span class="dot">●</span></span>
+          <span class="marquee__item">Docker <span class="dot">●</span></span>
+          <span class="marquee__item">OpenCV <span class="dot">●</span></span>
+          <span class="marquee__item">TensorFlow Lite <span class="dot">●</span></span>
+          <span class="marquee__item">Linux <span class="dot">●</span></span>
+          <span class="marquee__item">GDB <span class="dot">●</span></span>
+          <span class="marquee__item">JTAG <span class="dot">●</span></span>
+          <span class="marquee__item">Verilog <span class="dot">●</span></span>
+          <span class="marquee__item">PyTorch <span class="dot">●</span></span>
+          <span class="marquee__item">XGBoost <span class="dot">●</span></span>
+          <span class="marquee__item">gRPC <span class="dot">●</span></span>
+          <span class="marquee__item">GitLab CI <span class="dot">●</span></span>
+        </div>
+        <div class="marquee__group" aria-hidden="true">
+          <span class="marquee__item">C <span class="dot">●</span></span>
+          <span class="marquee__item">Python <span class="dot">●</span></span>
+          <span class="marquee__item">Zephyr RTOS <span class="dot">●</span></span>
+          <span class="marquee__item">Nordic nRF52 <span class="dot">●</span></span>
+          <span class="marquee__item">BLE <span class="dot">●</span></span>
+          <span class="marquee__item">CAN <span class="dot">●</span></span>
+          <span class="marquee__item">I²C <span class="dot">●</span></span>
+          <span class="marquee__item">SPI <span class="dot">●</span></span>
+          <span class="marquee__item">UART <span class="dot">●</span></span>
+          <span class="marquee__item">Raspberry Pi <span class="dot">●</span></span>
+          <span class="marquee__item">STM32 <span class="dot">●</span></span>
+          <span class="marquee__item">POSIX threads <span class="dot">●</span></span>
+          <span class="marquee__item">CI/CD <span class="dot">●</span></span>
+          <span class="marquee__item">Pytest <span class="dot">●</span></span>
+          <span class="marquee__item">Docker <span class="dot">●</span></span>
+          <span class="marquee__item">OpenCV <span class="dot">●</span></span>
+          <span class="marquee__item">TensorFlow Lite <span class="dot">●</span></span>
+          <span class="marquee__item">Linux <span class="dot">●</span></span>
+          <span class="marquee__item">GDB <span class="dot">●</span></span>
+          <span class="marquee__item">JTAG <span class="dot">●</span></span>
+          <span class="marquee__item">Verilog <span class="dot">●</span></span>
+          <span class="marquee__item">PyTorch <span class="dot">●</span></span>
+          <span class="marquee__item">XGBoost <span class="dot">●</span></span>
+          <span class="marquee__item">gRPC <span class="dot">●</span></span>
+          <span class="marquee__item">GitLab CI <span class="dot">●</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================ ABOUT ============================ -->
+    <section id="about" class="section section--alt" aria-labelledby="about-title">
+      <div class="container">
+        <p class="kicker">// <span class="accent">01</span> // about</p>
+        <h2 id="about-title" class="section-title">whoami</h2>
+        <div class="about__grid">
+          <div class="about__text">
+            <p data-reveal>
+              I'm a recent Computer Engineering graduate of Queen's University (GPA 3.97, Dean's List), focused on embedded systems, scalable software, and hardware–software integration. During my degree I built Zephyr RTOS sensing platforms on Nordic nRF52 microcontrollers at Queen's ePOWER lab, and previously interned at Geotab designing multi-threaded TCP/IP communication software and deploying a 26-station hardware-in-the-loop testing infrastructure for embedded telematics devices — and returned for a summer 2026 term building HIL infrastructure for Geotab's next-generation telematics device.
+            </p>
+            <p data-reveal>
+              I'm now pursuing an MSc in Computing (Software Engineering) at Imperial College London, continuing to build systems that combine reliable software, embedded hardware, and real-world sensing. Alongside my degree I served as Co-President and Director of Competitive Esports at the Queen's Esports Association, leading operations for a 500+ member student organization.
+            </p>
+          </div>
+          <div class="stats" data-reveal>
+            <div class="stat">
+              <div class="stat__value" data-counter data-target="3.97" data-decimals="2">0</div>
+              <div class="stat__label">cumulative GPA</div>
+            </div>
+            <div class="stat">
+              <div class="stat__value"><span data-counter data-target="500">0</span>+</div>
+              <div class="stat__label">QEA members led</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ EXPERIENCE ============================ -->
+    <section id="experience" class="section" aria-labelledby="experience-title">
+      <div class="container">
+        <p class="kicker">// <span class="accent">02</span> // experience</p>
+        <h2 id="experience-title" class="section-title">work.history</h2>
+
+        <div class="timeline">
+          <!-- Geotab Return -->
+          <article class="tl-item" data-reveal>
+            <div class="tl-dot" aria-hidden="true"></div>
+            <div class="tl-card">
+              <div class="tl-card__head">
+                <img class="tl-card__img" src="pictures/Geotab.png" alt="Geotab logo" loading="lazy" decoding="async" width="56" height="56" />
+                <div>
+                  <h3 class="tl-card__title">Embedded Engineering Intern — Quality &amp; Test Automation (Returning Term)</h3>
+                  <div class="tl-card__meta">Geotab, Embedded Engineering &mdash; <span class="tl-card__date">May 2026 — Aug 2026</span></div>
+                </div>
+              </div>
+              <ul>
+                <li>Built the hardware-in-the-loop test topology for Geotab's next-generation telematics device end to end, the first rigs of their kind, from physical rig construction to Python framework support, and deployed 4 rigs of the new design used by multiple engineering teams.</li>
+                <li>Integrated and debugged custom interface PCBs bridging the devices under test and Raspberry Pi hosts over I²C (C++ gRPC services), isolating faults across hardware, firmware and host software.</li>
+                <li>Extended the Pytest smoke suites and GitLab CI/CD pipelines (YAML) to cover the new rigs, whose internal control logic differed substantially from the existing fleet.</li>
+                <li>Owned reliability of the HIL fleet as the go-to on-site engineer: monitored live failures, traced root causes and deployed fixes quickly.</li>
+                <li>Restructured pcapng / ASC (CAN) log capture in the Python test framework from a single shared folder into per-run, per-test directories, and reworked how CI collects and displays log artifacts, making every failure traceable to its exact capture.</li>
+                <li>Built an inventory tracking system for HIL rig components (spreadsheet backend with a web UI) with automated Gmail low-stock alerts, so rig builds never stall on parts.</li>
+                <li>Led a cohort of 6 new interns: ran their onboarding and integration into the team, assigned and tracked work for 3 of them, and handled their day-to-day blockers.</li>
+              </ul>
+              <ul class="chips">
+                <li class="chip">HIL</li><li class="chip">Python</li>
+                <li class="chip">I²C</li><li class="chip">GitLab CI/CD</li>
+                <li class="chip chip--mag">Leadership</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- ePOWER -->
+          <article class="tl-item" data-reveal>
+            <div class="tl-dot" aria-hidden="true"></div>
+            <div class="tl-card">
+              <div class="tl-card__head">
+                <img class="tl-card__img" src="pictures/Strawberry_project.png" alt="ePOWER lysimeter strawberry research platform" loading="lazy" decoding="async" width="56" height="56" />
+                <div>
+                  <h3 class="tl-card__title">Undergraduate Research Assistant — Software Lead</h3>
+                  <div class="tl-card__meta">Queen's University, ePOWER &mdash; <span class="tl-card__date">Sept 2025 — Jan 2026</span></div>
+                </div>
+              </div>
+              <ul>
+                <li>Built Zephyr RTOS firmware on Nordic nRF52 for a 9-sensor research lysimeter, scheduling periodic sampling and BLE telemetry through Zephyr work queues and kernel primitives.</li>
+                <li>Designed a modular sensor HAL abstracting I²C and SAADC inputs behind calibrated unit conversions, so new sensor types could be added without touching the scheduling layer.</li>
+                <li>Wrote a custom BLE GATT service for real-time telemetry — packed payloads, custom UUIDs, low-power periodic notifications.</li>
+                <li>Owned sensor bring-up and field debugging: protocol timing, I²C edge cases, and analog drift, to keep the platform reliable outdoors.</li>
+              </ul>
+              <ul class="chips">
+                <li class="chip">Zephyr RTOS</li><li class="chip">BLE</li>
+                <li class="chip">Embedded C</li><li class="chip">Sensor Fusion</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Geotab -->
+          <article class="tl-item" data-reveal>
+            <div class="tl-dot" aria-hidden="true"></div>
+            <div class="tl-card">
+              <div class="tl-card__head">
+                <img class="tl-card__img" src="pictures/HIL.png" alt="Geotab hardware-in-the-loop test rack" loading="lazy" decoding="async" width="56" height="56" />
+                <div>
+                  <h3 class="tl-card__title">Embedded Engineering Intern — Quality &amp; Test Automation</h3>
+                  <div class="tl-card__meta">Geotab, Embedded Engineering &mdash; <span class="tl-card__date">May 2024 — Aug 2025</span></div>
+                </div>
+              </div>
+              <ul>
+                <li>Designed a multi-threaded TCP/IP serial protocol in C and Python to bridge a Linux embedded host with concurrent test clients — POSIX threads, semaphores, and mutexes coordinating thread-safe data handoff.</li>
+                <li>Architected and deployed 26 HIL test stations (5 DUTs each, ~130 devices) that expanded test capacity 10×; each station fans out GPIO, CAN, ADC, and UART/serial through a Raspberry Pi.</li>
+                <li>Built Pytest smoke suites wired into CI/CD so regressions on any hardware bus surfaced continuously instead of in batched test runs.</li>
+                <li>Owned rig configuration end-to-end — hardware specs, IP reservations, capability flags — all version-controlled so a station's identity is reproducible.</li>
+              </ul>
+              <ul class="chips">
+                <li class="chip">HIL</li><li class="chip">Python</li>
+                <li class="chip">CI/CD</li><li class="chip">Embedded Linux</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- TA -->
+          <article class="tl-item" data-reveal>
+            <div class="tl-dot" aria-hidden="true"></div>
+            <div class="tl-card">
+              <div class="tl-card__head">
+                <img class="tl-card__img" src="pictures/Teaching_assistant.png" alt="Teaching assistant in Queen's University engineering lab" loading="lazy" decoding="async" width="56" height="56" />
+                <div>
+                  <h3 class="tl-card__title">Teaching Assistant</h3>
+                  <div class="tl-card__meta">Queen's University, Engineering Department &mdash; <span class="tl-card__date">2023, 2025</span></div>
+                </div>
+              </div>
+              <ul>
+                <li>Taught C from fundamentals through pointers and dynamic memory in weekly office hours and lab sessions.</li>
+                <li>Coached students through Linux OS labs — kernel modules, shell programming, pthreads producer/consumer synchronization, and /proc inspection.</li>
+                <li>Provided live debugging support on the gnarly stuff: stack memory, race conditions, x86-64 system calls.</li>
+              </ul>
+              <ul class="chips">
+                <li class="chip">C</li><li class="chip">Linux</li>
+                <li class="chip">Debugging</li><li class="chip">Teaching</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- QEA -->
+          <article class="tl-item" data-reveal>
+            <div class="tl-dot" aria-hidden="true"></div>
+            <div class="tl-card">
+              <div class="tl-card__head">
+                <img class="tl-card__img" src="pictures/QEA_Logo.png" alt="Queen's Esports Association logo" loading="lazy" decoding="async" width="56" height="56" />
+                <div>
+                  <h3 class="tl-card__title">Co-President &amp; Director of Competitive Esports</h3>
+                  <div class="tl-card__meta">Queen's Esports Association &mdash; <span class="tl-card__date">April 2024 — May 2026</span></div>
+                </div>
+              </div>
+              <ul>
+                <li>Led executive operations for a 500+ member organization, reporting to and negotiating with university administration.</li>
+                <li>Built and ran a 20-person leadership team — 10 Game Directors, 5 Marketing, 5 Community Coordinators.</li>
+                <li>Owned the $10K annual budget across competitions, equipment, and campaigns; secured external sponsor funding to extend it further.</li>
+              </ul>
+              <ul class="chips">
+                <li class="chip chip--mag">Leadership</li>
+                <li class="chip chip--mag">Budget Management</li>
+                <li class="chip chip--mag">Events</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PROJECTS ============================ -->
+    <section id="projects" class="section section--alt" aria-labelledby="projects-title">
+      <div class="container">
+        <p class="kicker">// <span class="accent">03</span> // projects</p>
+        <h2 id="projects-title" class="section-title">build.log</h2>
+
+        <div class="projects-grid">
+          <!-- ESAT -->
+          <article class="proj-card" data-reveal>
+            <div class="proj-card__cover">
+              <img src="pictures/Nano_satalite.png" alt="Educational satellite (ESAT) platform" loading="lazy" decoding="async" />
+            </div>
+            <div class="proj-card__body">
+              <div class="proj-card__index">&gt; 01</div>
+              <h3 class="proj-card__title">Educational Satellite (ESAT) Platform</h3>
+              <div class="proj-card__meta">Capstone Project &middot; 2025 — 2026</div>
+              <ul>
+                <li>Developed embedded firmware in C++ (Arduino framework) for a modular nanosatellite platform integrating OBC, ADCS, EPS, and RF communication subsystems.</li>
+                <li>Implemented wireless command and telemetry communication over 433 MHz RF, enabling remote monitoring and control between the satellite and ground station.</li>
+                <li>Integrated subsystem communication over I²C between flight computer and control subsystems, enabling coordinated telemetry collection and command execution.</li>
+                <li>Built a high-frequency telemetry pipeline to collect sensor and subsystem data for machine learning–based anomaly detection, modifying firmware timing and packet scheduling to increase dataset resolution.</li>
+                <li>Designed experiments and injected controlled faults into subsystem firmware to generate labelled datasets, then trained XGBoost models for anomaly detection on the resulting telemetry.</li>
+                <li>Performed board bring-up, firmware flashing, and debugging across multiple microcontroller platforms (STM32L4, MSP430) and satellite subsystems.</li>
+              </ul>
+              <ul class="chips">
+                <li class="chip">Embedded C++</li><li class="chip">Arduino</li>
+                <li class="chip">RF</li><li class="chip">I²C</li>
+                <li class="chip chip--lime">ML</li><li class="chip">STM32</li>
+                <li class="chip chip--lime">XGBoost</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- RISC CPU -->
+          <article class="proj-card" data-reveal>
+            <div class="proj-card__cover">
+              <img src="pictures/riscv_cpu.jpg" alt="Illustration of a processor chip on a circuit board" loading="lazy" decoding="async" onerror="this.hidden=true" />
+            </div>
+            <div class="proj-card__body">
+              <div class="proj-card__index">&gt; 02</div>
+              <h3 class="proj-card__title">32-bit RISC Processor (Mini SRC)</h3>
+              <div class="proj-card__meta">Digital Systems Engineering &middot; Team of 3 &middot; Jan — Apr 2026</div>
+              <ul>
+                <li>Designed a 32-bit multi-cycle, single-bus RISC processor in Verilog with a 16-register file, HI/LO registers, 512-word memory, I/O ports and a hardwired finite-state-machine control unit (fetch, decode and up to six execute states).</li>
+                <li>Personally implemented the signed 32-bit non-restoring divider (quotient to LO, remainder to HI), the synchronous 512-word RAM, and the top-level CPU integration.</li>
+                <li>The ALU supports 13 operations, including a radix-4 Booth multiplier with bit-pair recoding that halves the partial products from 32 to 16.</li>
+                <li>Extended the ISA beyond the specification with immediate-operand shifts (SHRI, SHLI, SHRAI) and a hardware-managed stack (PUSH/POP using R14 as the stack pointer).</li>
+                <li>Built bottom-up with per-module testbenches and full regression across 32 instructions; ran the benchmark program at a CPI of 6.7 in cycle-accurate simulation (Icarus Verilog + GTKWave).</li>
+              </ul>
+              <ul class="chips">
+                <li class="chip">Verilog</li><li class="chip">Computer Architecture</li>
+                <li class="chip">RTL Design</li><li class="chip">Icarus Verilog</li>
+                <li class="chip">GTKWave</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Taxi -->
+          <article class="proj-card" data-reveal>
+            <div class="proj-card__cover">
+              <img src="pictures/taxi.png" alt="Autonomous PiCar-X taxi robot" loading="lazy" decoding="async" />
+            </div>
+            <div class="proj-card__body">
+              <div class="proj-card__index">&gt; 03</div>
+              <h3 class="proj-card__title">Autonomous Taxi System</h3>
+              <div class="proj-card__meta">Embedded Robotics Project &middot; Team of 2</div>
+              <ul>
+                <li>Architected and implemented a finite-state machine (FSM) control system for autonomous navigation, handling lane following, stop/yield logic, and intersection maneuvers.</li>
+                <li>Developed real-time embedded control software on Raspberry Pi integrating line sensors and camera input for lane tracking and navigation decisions.</li>
+                <li>Implemented computer vision pipelines in OpenCV for lane detection and preprocessing of camera frames for traffic sign classification.</li>
+                <li>Integrated TensorFlow Lite CNN models accelerated with Coral Edge TPU for low-latency traffic sign classification within constrained embedded compute budgets, achieving near-real-time detection.</li>
+                <li>Implemented dataset preprocessing and augmentation (rotation, scaling, brightness variation) to improve model robustness to lighting and viewpoint variation.</li>
+                <li>Designed a modular robotics software architecture separating perception, decision logic, and control layers to support deterministic behavior and subsystem testing.</li>
+              </ul>
+              <ul class="chips">
+                <li class="chip">Raspberry Pi 4</li><li class="chip">PiCar-X</li>
+                <li class="chip">Python</li><li class="chip">OpenCV</li>
+                <li class="chip chip--lime">TF Lite</li><li class="chip">Coral TPU</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- CLIP retrieval -->
+          <article class="proj-card" data-reveal>
+            <div class="proj-card__cover">
+              <img src="pictures/clip_retrieval.jpg" alt="Illustration of images and text flowing into a shared embedding space" loading="lazy" decoding="async" onerror="this.hidden=true" />
+            </div>
+            <div class="proj-card__body">
+              <div class="proj-card__index">&gt; 04</div>
+              <h3 class="proj-card__title">CLIP-Style Image–Text Retrieval</h3>
+              <div class="proj-card__meta">Computer Vision (Deep Learning) &middot; Team of 2 &middot; Fall 2025</div>
+              <ul>
+                <li>Trained a ResNet50 image encoder (ImageNet-initialised) with a two-layer GELU projection head to map images into the embedding space of a frozen CLIP ViT-B/32 text encoder.</li>
+                <li>Optimised with InfoNCE contrastive loss over in-batch image–text similarity matrices on COCO 2014 image–caption pairs.</li>
+                <li>Improved generalisation with normalisation, dropout, EMA weights, cosine-annealed AdamW and image augmentation, lifting every Recall@K metric over the baseline.</li>
+                <li>Final results: image→text R@1 / R@5 / R@10 of 0.694 / 0.913 / 0.967; text→image R@10 of 0.933.</li>
+              </ul>
+              <ul class="chips">
+                <li class="chip chip--lime">PyTorch</li><li class="chip">Hugging Face</li>
+                <li class="chip">Contrastive Learning</li><li class="chip">CLIP</li>
+                <li class="chip">COCO</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Segmentation & distillation -->
+          <article class="proj-card" data-reveal>
+            <div class="proj-card__cover proj-card__cover--bottom">
+              <img src="pictures/segmentation.jpg" alt="Illustration of a neural network segmenting a city street scene" loading="lazy" decoding="async" onerror="this.hidden=true" />
+            </div>
+            <div class="proj-card__body">
+              <div class="proj-card__index">&gt; 05</div>
+              <h3 class="proj-card__title">Lightweight Semantic Segmentation &amp; Knowledge Distillation</h3>
+              <div class="proj-card__meta">Computer Vision (Deep Learning) &middot; Team of 2 &middot; Fall 2025</div>
+              <ul>
+                <li>Built an 11.2M-parameter segmentation model: a ResNet18 encoder with dilated convolutions at output stride 16 and a lightweight multi-scale feature-fusion decoder.</li>
+                <li>Reached 0.483 validation mIoU on PASCAL VOC 2012 at about 1 ms per image, trained with mixed precision on a single 8 GB GPU.</li>
+                <li>Implemented response-based (KL divergence, T = 4) and feature-based (cosine similarity) distillation from an FCN-ResNet50 teacher, and benchmarked four configurations against the non-distilled baseline.</li>
+              </ul>
+              <ul class="chips">
+                <li class="chip chip--lime">PyTorch</li><li class="chip">Semantic Segmentation</li>
+                <li class="chip">Knowledge Distillation</li><li class="chip">ResNet</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Anti-theft -->
+          <article class="proj-card" data-reveal>
+            <div class="proj-card__cover">
+              <img src="pictures/Anti-theft-project.png" alt="Anti-theft package security system prototype" loading="lazy" decoding="async" />
+            </div>
+            <div class="proj-card__body">
+              <div class="proj-card__index">&gt; 06</div>
+              <h3 class="proj-card__title">Anti-theft Package Security System</h3>
+              <div class="proj-card__meta">Queen's University, Engineering Department</div>
+              <ul>
+                <li>Collaborated with a team to research, architect, and implement a smart anti-theft package security system utilizing Arduino microcontroller hardware and embedded C/C++ development.</li>
+                <li>Solely responsible for developing firmware to interface with multiple hardware components, including an ultrasonic distance sensor (HC-SR04) for proximity detection, RFID module (ISO/IEC 14443) for secure activation, and a Wi-Fi-enabled IP camera for remote visual monitoring using ESP8266/ESP32 modules and MQTT.</li>
+                <li>Integrated sensor data acquisition, interrupt-driven event handling, and real-time system control using I²C and SPI communication protocols on the Arduino platform.</li>
+                <li>Designed secure, low-latency wireless communication workflows for alert notifications and remote system access, leveraging TCP/IP stack over Wi-Fi.</li>
+                <li>Delivered a comprehensive technical presentation, earning a finish in the top 5% of the class cohort.</li>
+              </ul>
+              <ul class="chips">
+                <li class="chip">Arduino</li><li class="chip">Embedded C</li>
+                <li class="chip">IoT</li><li class="chip">MQTT</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Medical hackathon -->
+          <article class="proj-card" data-reveal>
+            <div class="proj-card__cover">
+              <img src="pictures/Medical_hackathon.png" alt="Interactive IV insertion simulator prototype" loading="lazy" decoding="async" />
+            </div>
+            <div class="proj-card__body">
+              <div class="proj-card__index">&gt; 07</div>
+              <h3 class="proj-card__title">Interactive IV Insertion Simulator</h3>
+              <div class="proj-card__meta">Queen's University, Engineering Department</div>
+              <ul>
+                <li>Collaborated in a multidisciplinary engineering team to design and develop a prototype medical task trainer focused on improving accessibility and user interactivity for clinical skills training.</li>
+                <li>Engineered an affordable, interactive IV insertion simulator by embedding force-sensitive pressure sensors within custom-molded silicone skin, enabling real-time detection of excessive insertion depth or force.</li>
+                <li>Programmed embedded firmware on Arduino Uno to interface with analog pressure sensors, streaming live data via serial communication to a MATLAB-based GUI.</li>
+                <li>Implemented real-time signal processing and data visualization in MATLAB, enabling dynamic feedback and quantitative performance metrics for nursing students during IV insertion training.</li>
+                <li>Presented technical design and implementation details to project sponsors, achieving 3rd place &amp; a $1,500 prize in a competitive innovation challenge.</li>
+              </ul>
+              <ul class="chips">
+                <li class="chip">Arduino</li><li class="chip">MATLAB</li>
+                <li class="chip">Sensors</li><li class="chip">Signal Processing</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ SKILLS ============================ -->
+    <section id="skills" class="section" aria-labelledby="skills-title">
+      <div class="container">
+        <p class="kicker">// <span class="accent">04</span> // skills</p>
+        <h2 id="skills-title" class="section-title">tech.stack</h2>
+
+        <div class="skills-grid">
+          <article class="skill-card" data-reveal>
+            <div class="skill-card__index">&gt; 01_languages</div>
+            <h3 class="skill-card__title"><i class="fas fa-code" aria-hidden="true"></i> Languages</h3>
+            <ul class="chips">
+              <li class="chip">C</li><li class="chip">C++</li><li class="chip">Python</li>
+              <li class="chip">Java</li><li class="chip">VHDL</li><li class="chip">Verilog</li>
+              <li class="chip">Assembly (Nios II, x86-64)</li><li class="chip">Bash</li>
+            </ul>
+          </article>
+
+          <article class="skill-card" data-reveal>
+            <div class="skill-card__index">&gt; 02_devops</div>
+            <h3 class="skill-card__title"><i class="fas fa-gears" aria-hidden="true"></i> DevOps &amp; Automation</h3>
+            <ul class="chips">
+              <li class="chip">Git</li><li class="chip">GitLab CI/CD</li><li class="chip">Docker</li>
+              <li class="chip">Ansible</li><li class="chip">Pytest</li>
+            </ul>
+          </article>
+
+          <article class="skill-card" data-reveal>
+            <div class="skill-card__index">&gt; 03_protocols</div>
+            <h3 class="skill-card__title"><i class="fas fa-network-wired" aria-hidden="true"></i> Communication Protocols</h3>
+            <ul class="chips">
+              <li class="chip">UART</li><li class="chip">CAN</li><li class="chip">I²C</li><li class="chip">SPI</li>
+              <li class="chip">TCP/IP</li><li class="chip">gRPC</li>
+            </ul>
+          </article>
+
+          <article class="skill-card" data-reveal>
+            <div class="skill-card__index">&gt; 04_debug</div>
+            <h3 class="skill-card__title"><i class="fas fa-bug" aria-hidden="true"></i> Debugging &amp; Testing</h3>
+            <ul class="chips">
+              <li class="chip">JTAG</li><li class="chip">GDB</li>
+              <li class="chip">PCAN-USB</li><li class="chip">Serial Debugging</li>
+              <li class="chip">Icarus Verilog</li><li class="chip">GTKWave</li>
+            </ul>
+          </article>
+
+          <article class="skill-card" data-reveal>
+            <div class="skill-card__index">&gt; 05_embedded</div>
+            <h3 class="skill-card__title"><i class="fas fa-microchip" aria-hidden="true"></i> Embedded Systems</h3>
+            <ul class="chips">
+              <li class="chip">Arduino (ARM)</li><li class="chip">Raspberry Pi (Linux)</li><li class="chip">FPGA</li>
+            </ul>
+          </article>
+
+          <article class="skill-card" data-reveal>
+            <div class="skill-card__index">&gt; 06_ml</div>
+            <h3 class="skill-card__title"><i class="fas fa-brain" aria-hidden="true"></i> Machine Learning</h3>
+            <ul class="chips">
+              <li class="chip">PyTorch</li><li class="chip">Hugging Face</li><li class="chip">XGBoost</li>
+              <li class="chip">TensorFlow Lite</li><li class="chip">OpenCV</li><li class="chip">Coral Edge TPU</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ EDUCATION ============================ -->
+    <section id="education" class="section section--alt" aria-labelledby="education-title">
+      <div class="container">
+        <p class="kicker">// <span class="accent">05</span> // education</p>
+        <h2 id="education-title" class="section-title">academic.history</h2>
+
+        <div class="edu-grid">
+          <article class="edu-card" data-reveal>
+            <div class="edu-card__head">
+              <img class="edu-card__logo" src="pictures/Imperial_logo.png" alt="Imperial College London logo" loading="lazy" decoding="async" width="64" height="64" onerror="this.hidden=true" />
+              <div>
+                <h3 class="edu-card__title">Imperial College London</h3>
+                <div class="edu-card__sub">MSc Computing (Software Engineering) &middot; <span class="accent">Sept 2026 — Sept 2027 (expected)</span></div>
+                <div class="edu-card__sub">London, UK</div>
+              </div>
+            </div>
+            <div class="edu-card__courses">
+              <strong>Modules:</strong> Advanced Computer Architecture, Machine Learning Systems &amp; Hardware, Scalable Systems &amp; Data, Scheduling &amp; Resource Allocation, Software Engineering for Industry, Advanced Computer Security, Generative AI, Networked Systems, Software Engineering for Machine Learning Systems.
+            </div>
+          </article>
+
+          <article class="edu-card" data-reveal>
+            <div class="edu-card__head">
+              <img class="edu-card__logo" src="pictures/QueensLogo_colour.png" alt="Queen's University crest" loading="lazy" decoding="async" width="64" height="64" />
+              <div>
+                <h3 class="edu-card__title">Queen's University</h3>
+                <div class="edu-card__sub">BASc — Computer Engineering &middot; <span class="accent">2021 — 2026</span></div>
+                <div class="edu-card__sub">GPA <span class="accent">3.97</span> &middot; Dean's List 2021 — 2026</div>
+                <div class="edu-card__sub">Kingston, ON, Canada</div>
+              </div>
+            </div>
+            <div class="edu-card__courses">
+              <strong>Notable courses:</strong> Digital Systems, Computer Architecture, Data Structures, Autonomous Robotics, Object Oriented Programming, Microprocessor Systems, Operating Systems, Algorithms, Safety Critical Software Engineering, Machine Learning, Computer Vision (Deep Learning).
+            </div>
+          </article>
+
+          <article class="edu-card" data-reveal>
+            <div class="edu-card__head">
+              <img class="edu-card__logo" src="pictures/NTU_logo.png" alt="Nanyang Technological University logo" loading="lazy" decoding="async" width="64" height="64" />
+              <div>
+                <h3 class="edu-card__title">Nanyang Technological University</h3>
+                <div class="edu-card__sub">Semester Abroad &middot; <span class="accent">January — May 2024</span></div>
+                <div class="edu-card__sub">Singapore</div>
+              </div>
+            </div>
+            <div class="edu-card__courses">
+              <strong>Notable courses:</strong> Software Development, Database Systems, Computer Networks.
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CONTACT ============================ -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="container">
+        <p class="kicker">// <span class="accent">06</span> // contact</p>
+        <h2 id="contact-title" class="section-title">connect.sh</h2>
+
+        <div class="terminal" data-reveal id="terminal">
+          <div class="terminal__body" id="terminal-body">
+            <noscript>
+              <div class="terminal__line"><span class="terminal__prompt">$</span> <span class="terminal__cmd">whoami</span></div>
+              <div class="terminal__out">William Hatcher — London, UK</div>
+              <div class="terminal__line"><span class="terminal__prompt">$</span> <span class="terminal__cmd">contact --email</span></div>
+              <div class="terminal__out"><a href="mailto:williamchalmershatcher@gmail.com">williamchalmershatcher@gmail.com</a></div>
+              <div class="terminal__line"><span class="terminal__prompt">$</span> <span class="terminal__cmd">contact --linkedin</span></div>
+              <div class="terminal__out"><a href="https://www.linkedin.com/in/will-hatcher-07b234229/" target="_blank" rel="noopener">linkedin.com/in/will-hatcher-07b234229</a></div>
+            </noscript>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/mojbkwng" method="POST" data-reveal>
+          <input type="hidden" name="_subject" value="New message from williamhatcher.ca" />
+          <label class="contact-form__field">
+            <span>Name</span>
+            <input type="text" name="name" autocomplete="name" required />
+          </label>
+          <label class="contact-form__field">
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" required />
+          </label>
+          <label class="contact-form__field contact-form__field--full">
+            <span>Message</span>
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <label class="contact-form__honeypot" aria-hidden="true">
+            <span>Leave this field empty</span>
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+          </label>
+          <div class="contact-form__actions">
+            <button class="btn btn--mag" type="submit">
+              <i class="fas fa-paper-plane" aria-hidden="true"></i> send message
+            </button>
+            <p class="contact-form__status" id="contact-form-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+
+        <div class="contact__cta">
+          <a class="btn" href="mailto:williamchalmershatcher@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> email me</a>
+          <button type="button" class="btn" id="copy-email" data-email="williamchalmershatcher@gmail.com" aria-label="Copy email address to clipboard">
+            <i class="fas fa-copy" aria-hidden="true"></i> <span class="copy-email__label">copy email</span>
+          </button>
+          <a class="btn" href="https://www.linkedin.com/in/will-hatcher-07b234229/" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i> linkedin</a>
+          <a id="resume-contact" class="btn btn--mag" href="Resume_William_Hatcher.pdf" download><i class="fas fa-file-arrow-down" aria-hidden="true"></i> resume</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="footer">
+    <div>&copy; 2026 william.hatcher &nbsp;//&nbsp; hand-built in html, css, and a little javascript</div>
+    <div class="footer__links">
+      <a id="resume-footer" class="footer__pill" href="Resume_William_Hatcher.pdf" download><i class="fas fa-file-pdf" aria-hidden="true"></i> Resume</a>
+    </div>
+    <div class="footer__socials">
+      <a href="mailto:williamchalmershatcher@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/will-hatcher-07b234229/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/slim@3.5.0/tsparticles.slim.bundle.min.js" defer></script>
+  <script src="scripts.js" defer></script>
+</body>
+</html>
