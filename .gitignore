@@ -10,8 +10,6 @@ AGENTS.md
 # Obsidian vault configuration (local editor state)
 .obsidian/
 
-# Local notes not intended for the public repo
-README.md
 
 # ---------------------------------------------------------------
 # OS / editor cruft
